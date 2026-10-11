@@ -5,6 +5,7 @@ import { testConnection, getPool } from './db/database.js';
 import authRoutes from './routes/authRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import jobRoutes from './routes/jobRoutes.js';
+import eventRoutes from './routes/eventRoutes.js';
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
     version: '1.0.0',
     adminLogin: '/api/auth/login',
     jobsListing: '/api/jobs',
+    eventsListing: '/api/events',
     documentation: '/api/health'
   });
 });
@@ -46,6 +48,9 @@ app.use('/api/admin', adminRoutes);
 
 // 3. Public Career Opportunities & Job Search API (with page 10 pagination)
 app.use('/api/jobs', jobRoutes);
+
+// 4. Public Mega Job Melas & Skill Bootcamps API
+app.use('/api/events', eventRoutes);
 
 // 3. Public Intake Endpoint: Graduate Registration
 app.post('/api/graduates/register', async (req, res) => {
