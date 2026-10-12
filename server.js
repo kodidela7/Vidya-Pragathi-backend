@@ -117,7 +117,7 @@ app.post('/api/helpdesk/ticket', async (req, res) => {
     }
 
     const pool = await getPool();
-    const ticketNumber = `GR-2026-BJP-${Math.floor(1000 + Math.random() * 9000)}`;
+    const ticketNumber = `GR-2026-NDA-${Math.floor(1000 + Math.random() * 9000)}`;
 
     await pool.query(
       `INSERT INTO helpdesk_tickets (ticket_number, full_name, mobile, category, district, message)
